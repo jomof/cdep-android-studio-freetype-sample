@@ -11,6 +11,7 @@ All you need to do is clone this project, run CDep, and build.
 
 ```
 git clone https://github.com/jomof/android-sdl2-gradle-template
+cd android-sdl2-gradle-template
 ./cdep
 ./gradlew assemble
 ```
