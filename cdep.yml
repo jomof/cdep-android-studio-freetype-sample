@@ -1,0 +1,4 @@
+builders: [cmake]
+
+dependencies:
+- compile: com.github.jomof:sdl2:2.0.5-rev6
