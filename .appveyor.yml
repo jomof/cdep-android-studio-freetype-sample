@@ -5,12 +5,12 @@ environment:
 clone_folder: "C:\\projects\\android-sdl2-gradle-template"
 
 init:
-  - cd \
+  - pushd \
   - appveyor DownloadFile http://dl.google.com/android/android-sdk_r24.4.1-windows.zip
   - 7z x android-sdk_r24.4.1-windows.zip
   - appveyor DownloadFile https://dl.google.com/android/repository/android-ndk-r13b-windows-x86_64.zip
   - 7z x android-ndk-r13b-windows-x86_64.zip
-  - cd C:\projects\android-sdl2-gradle-template
+  - popd C:\projects\android-sdl2-gradle-template
 
 install:
   - echo y | "%ANDROID_HOME%\tools\android.bat" update sdk -u -a -t tools
@@ -21,8 +21,8 @@ install:
   - echo y | "%ANDROID_HOME%\tools\android.bat" update sdk -u -a -t extra-android-m2repository
 
 build_script:
-  - set ANDROID_HOME=\\android-sdk-windows
-  - set ANDROID_NDK_HOME=\\android-ndk-r13b
+  - set ANDROID_HOME=\android-sdk-windows
+  - set ANDROID_NDK_HOME=\android-ndk-r13b
   - gradlew.bat clean testDebug -Dscan --configure-on-demand --parallel --stacktrace
 
 cache:
