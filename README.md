@@ -19,7 +19,7 @@ You can also open the project in Android Studio and run it.
 
 ## Thanks
 
-This project is forked from the https://github.com/stephen47/android-sdl2-gradle-template and this was very helpful. 
+This project is forked from https://github.com/stephen47/android-sdl2-gradle-template which was very helpful. 
 
 The example libSDL2 program which draws the square on screen was found at https://stackoverflow.com/questions/21890627/drawing-a-rectangle-with-sdl2/21903973#21903973.
 
