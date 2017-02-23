@@ -2,49 +2,23 @@
 
 ## Synopsis
 
-This is an example project for using libSDL2 (https://www.libsdl.org/) in an Android Gradle project. This project came about as I couldn't find a good example project using libSDL2 in a gradle project. This project will create 2 shared NDK libraries, libSDL2 and libmain, the latter containing a very basic SDL2 program which displays a blue square on a red screen.
+This is an example project for using libSDL2 (https://www.libsdl.org/) in an Android Gradle project using the CDep dependency management tool to download the SDL2 package rather than building it.
 
-## Requirements
-- JDK and JRE 8 (I have been using Debian 8 using jessie-backports to get openjdk-8-jre and openjdk-8-jdk)
-- Android SDK and NDK (with Android Build-tools 24.0.2 and Android Platform API 23, though these are configurable)
-- ANDROID_HOME and ANDROID_NDK_HOME environment variables set (I did this in /etc/environment)
-
-## Before you begin
-I have not tested this in Android studio, I have just tested this using the Gradle wrapper command line. It is using gradle-experimental plugin version 0.8.0-beta3 and gradle version 2.14.1.
 
 ## Instructions
 
-Download libSDL2 from the website (https://www.libsdl.org/). Copy the src and include directories from the libSDL2 source into SDL2/ so you end up with the following directories:
+All you need to do is clone this project, run CDep, and build.
 
 ```
-SDL2/src
-SDL2/include
+git clone https://github.com/jomof/android-sdl2-gradle-template
+./cdep
+./gradlew assemble
 ```
-
-We also need to copy the example Java file from the libSDL2 source code into our project at the following location (copy from SDL2-2.0.4/android-project/src/org/libsdl/app/SDLActivity.java):
-
-```
-app/src/main/java/org/libsdl/app/SDLActivity.java
-```
-
-## Compiling the app
-
-```
-./gradlew :SDL2:distributeLib
-```
-This will compile libSDL2 as a shared library.
-
-```
-./gradlew :main:distributeLib
-```
-This will compile our little project (source code in main/src/) as a shared library. You can now skip this step and just run assembleDebug as below. What I would suggest is you compile SDL2 first, commit it to source control, then just build the project as normal (assembleDebug).
-
-```
-./gradlew assembleDebug
-```
-This will build our apk's and output them to app/build/outputs/apk/.
+You can also open the project in Android Studio and run it.
 
 ## Thanks
+
+This project is forked from the https://github.com/stephen47/android-sdl2-gradle-template and this was very helpful. 
 
 The example libSDL2 program which draws the square on screen was found at https://stackoverflow.com/questions/21890627/drawing-a-rectangle-with-sdl2/21903973#21903973.
 
