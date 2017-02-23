@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-This is an example project for using libSDL2 (https://www.libsdl.org/) in an Android Gradle project using the [CDep](github.com/jomof/cdep)  dependency management tool to download the SDL2 package rather than building it.
+This is an example project for using libSDL2 (https://www.libsdl.org/) in an Android Gradle project using the [CDep](https://github.com/jomof/cdep)  dependency management tool to download the SDL2 package rather than building it.
 
 
 ## Instructions
