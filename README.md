@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jomof/android-sdl2-gradle-template.svg?branch=master)](https://travis-ci.org/jomof/android-sdl2-gradle-template)
+
 # android-sdl2-gradle-template
 
 ## Synopsis
