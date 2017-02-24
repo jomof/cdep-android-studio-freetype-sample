@@ -1,8 +1,5 @@
 [![Build Status](https://travis-ci.org/jomof/android-sdl2-gradle-template.svg?branch=master)](https://travis-ci.org/jomof/android-sdl2-gradle-template)
 
-[![Build Status](https://ci.appveyor.com/api/projects/status/github/jomof/android-sdl2-gradle-template?branch=master&svg=true)](https://ci.appveyor.com/project/jomof/android-sdl2-gradle-template)
-
-
 # android-sdl2-gradle-template
 
 ## Synopsis
