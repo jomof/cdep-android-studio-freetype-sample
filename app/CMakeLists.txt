@@ -1,5 +1,4 @@
 cmake_minimum_required(VERSION 3.4.1)
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/../.cdep/modules")
 
 add_library( # Sets the name of the library.
              main
@@ -15,4 +14,5 @@ add_library( # Sets the name of the library.
 
 find_package(cdep-dependencies REQUIRED)
 add_all_cdep_dependencies(main)
+
 target_link_libraries(main dl GLESv1_CM GLESv2 log android)
