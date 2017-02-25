@@ -15,17 +15,4 @@ add_library( # Sets the name of the library.
 
 find_package(cdep-dependencies REQUIRED)
 add_all_cdep_dependencies(main)
-
-find_library( # Sets the name of the path variable.
-              log-lib
-
-              # Specifies the name of the NDK library that
-              # you want CMake to locate.
-              log )
-
-target_link_libraries( # Specifies the target library.
-                       main
-
-                       # Links the target library to the log library
-                       # included in the NDK.
-                       ${log-lib})
+target_link_libraries(main dl GLESv1_CM GLESv2 log android)
