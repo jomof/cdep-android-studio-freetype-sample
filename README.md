@@ -16,8 +16,8 @@ The latest version of CDep SDL2 package is here:
 All you need to do is clone this project, run CDep, and build.
 
 ```
-git clone https://github.com/jomof/android-sdl2-gradle-template
-cd android-sdl2-gradle-template
+git clone https://github.com/jomof/cdep-android-studio-SDL2-sample
+cd cdep-android-studio-SDL2-sample
 ./cdep
 ./gradlew assemble
 ```
