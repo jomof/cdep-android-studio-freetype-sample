@@ -1,5 +1,82 @@
-#include "SDL.h"
-#include <stdio.h>
+﻿#include <iostream>
+#include <string>
+
+#include <ft2build.h>
+#include FT_FREETYPE_H
+
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_main.h>
+
+const unsigned int WIDTH = 1280;
+const unsigned int HEIGHT = 720;
+
+const std::wstring TEXT = L"เก็บใจ เก็บไว้มานาน เก็บมันคล้าย ๆ รอใคร";
+SDL_Texture* CreateTextureFromFT_Bitmap(SDL_Renderer* renderer,
+                                        const FT_Bitmap& bitmap,
+                                        const SDL_Color& color)
+{
+    SDL_Texture* output = SDL_CreateTexture(renderer,
+                                            SDL_PIXELFORMAT_RGBA8888,
+                                            SDL_TEXTUREACCESS_STREAMING,
+                                            bitmap.width,
+                                            bitmap.rows);
+
+    void *buffer;
+    int pitch;
+    SDL_LockTexture(output, NULL, &buffer, &pitch);
+
+    unsigned char *src_pixels = bitmap.buffer;
+    unsigned int *target_pixels = reinterpret_cast<unsigned int*>(buffer);
+
+    SDL_PixelFormat* pixel_format = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888);
+
+    for (int y = 0; y < bitmap.rows; y++)
+    {
+        for (int x = 0; x < bitmap.width; x++)
+        {
+            int index = (y * bitmap.width) + x;
+
+            unsigned int alpha = src_pixels[index];
+            unsigned int pixel_value =
+                    SDL_MapRGBA(pixel_format, color.r, color.g, color.b, alpha);
+
+            target_pixels[index] = pixel_value;
+        }
+    }
+
+    SDL_FreeFormat(pixel_format);
+    SDL_UnlockTexture(output);
+
+    return output;
+}
+
+void DrawText(const std::wstring& text,
+              const SDL_Color& color,
+              const int& baseline,
+              const int& x_start,
+              const FT_Face& face,
+              SDL_Renderer* renderer)
+{
+    int x = x_start;
+
+    for (unsigned int i = 0; i < text.length(); i++)
+    {
+        FT_Load_Char(face, text[i], FT_LOAD_RENDER);
+
+        SDL_Texture* glyph_texture = CreateTextureFromFT_Bitmap(renderer, face->glyph->bitmap, color);
+
+        SDL_Rect dest;
+        SDL_QueryTexture(glyph_texture, NULL, NULL, &dest.w, &dest.h);
+        dest.x = x + (face->glyph->metrics.horiBearingX >> 6);
+        dest.y = baseline - (face->glyph->metrics.horiBearingY >> 6);
+
+        SDL_SetTextureBlendMode(glyph_texture, SDL_BLENDMODE_BLEND);
+        SDL_RenderCopy(renderer, glyph_texture, NULL, &dest);
+
+        x += (face->glyph->metrics.horiAdvance >> 6);
+        SDL_DestroyTexture(glyph_texture);
+    }
+}
 
 int main(int argc, char* argv[]) {
 
@@ -29,29 +106,39 @@ int main(int argc, char* argv[]) {
     SDL_Renderer* renderer = NULL;
     renderer =  SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED);
 
-    // Set render color to red ( background will be rendered in this color )
-    SDL_SetRenderDrawColor( renderer, 255, 0, 0, 255 );
+    FT_Library library;
+    FT_Init_FreeType(&library);
 
-    // Clear winow
-    SDL_RenderClear( renderer );
+    FT_Face face;
+    FT_New_Face(library, argv[1], 0, &face);
+    FT_Set_Pixel_Sizes(face, 0, 64);
 
-    // Creat a rect at pos ( 50, 50 ) that's 50 pixels wide and 50 pixels high.
-    SDL_Rect r;
-    r.x = 50;
-    r.y = 50;
-    r.w = 50;
-    r.h = 50;
+    SDL_Color color;
+    color.r = 0x80;
+    color.g = 0xff;
+    color.b = 0xaa;
 
-    // Set render color to blue ( rect will be rendered in this color )
-    SDL_SetRenderDrawColor( renderer, 0, 0, 255, 255 );
+    SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+    while (true)
+    {
+        SDL_Event event;
+        if (SDL_PollEvent(&event))
+        {
+            if (event.type == SDL_QUIT)	break;
+        }
 
-    // Render rect
-    SDL_RenderFillRect( renderer, &r );
+        SDL_SetRenderDrawColor(renderer, 0x50, 0x82, 0xaa, 0xff);
+        SDL_RenderClear(renderer);
 
-    // Render the rect to the screen
-    SDL_RenderPresent(renderer);
+        DrawText(TEXT, color, 300, 300, face, renderer);
 
-    SDL_Delay(8000);  // Pause execution for 3000 milliseconds, for example
+        SDL_RenderPresent(renderer);
+        SDL_Delay(10);
+    }
+
+    FT_Done_Face(face);
+    FT_Done_FreeType(library);
+
 
     // Close and destroy the window
     SDL_DestroyWindow(window);

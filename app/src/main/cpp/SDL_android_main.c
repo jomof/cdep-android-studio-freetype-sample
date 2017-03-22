@@ -5,7 +5,7 @@
 #ifdef __ANDROID__
 
 /* Include the SDL main definition header */
-#include "SDL_main.h"
+#include "SDL2/SDL_main.h"
 
 /*******************************************************************************
                  Functions called by JNI
