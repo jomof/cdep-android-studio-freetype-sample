@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/jomof/android-sdl2-gradle-template.svg?branch=master)](https://travis-ci.org/jomof/android-sdl2-gradle-template)
+[![Build Status](https://travis-ci.org/jomof/cdep-android-studio-freetype-sample.svg?branch=master)](https://travis-ci.org/jomof/cdep-android-studio-freetype-sample)
 
 # android-sdl2-gradle-template
 
@@ -8,7 +8,9 @@ This is an example project for using libSDL2 (https://www.libsdl.org/) in an And
 
 The latest version of CDep SDL2 package is here:
 
-[![CDep Status](https://cdep-io.github.io/com.github.jomof/sdl2/latest/latest.svg)](https://github.com/jomof/sdl2/releases/latest)
+[![Freetype Status](https://cdep-io.github.io/com.github.jomof/freetype/latest/latest.svg)](https://github.com/jomof/freetype/releases/latest) 
+
+[![CDep Status](https://cdep-io.github.io/com.github.jomof/sdl2/latest/latest.svg)](https://github.com/jomof/sdl2/releases/latest) 
 
 
 ## Instructions
