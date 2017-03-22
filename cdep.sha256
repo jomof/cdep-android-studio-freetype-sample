@@ -14,6 +14,8 @@
   sha256: 7747cc720b6d6b5b3eb94e9fc2160c0258806194dda6bb4e8ad7ce5811d15618
 - coordinate: com.github.jomof:sdl2:2.0.5-rev3
   sha256: 89fc36123bd18396b6fa23720fabb14dcd316e698c51df1c5342b2548c6c9216
+- coordinate: com.github.jomof:sdl2:2.0.5-rev16
+  sha256: 2594e2e4c65a83cbeb10586abd5ae3190b144bf59f4d9c24b5c06c5ffe8f94e0
 - coordinate: com.github.jomof:sdl2:2.0.5-rev4
   sha256: 196bd420b5bf50c8571016c83862c297559316d633af26426a35e46f44ba902a
 
