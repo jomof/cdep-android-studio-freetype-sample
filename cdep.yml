@@ -2,4 +2,4 @@ builders: [cmake]
 
 dependencies:
 - compile: com.github.jomof:sdl2:2.0.5-rev16
-- compile: com.github.jomof:sdl2:2.6.2-rev6
+- compile: com.github.jomof:freetype:2.6.2-rev6
