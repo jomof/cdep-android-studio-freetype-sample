@@ -8,6 +8,8 @@
 # The recommended best practice is to check this file into source control so that
 # anyone else who builds this project is guaranteed to get the same dependencies.
 
+- coordinate: com.github.jomof:tinydir:0.0.0-rev1
+  sha256: 665476207c63bee7070fd289985069139c6a7a5a618d283db6dbd9414d566682
 - coordinate: com.github.jomof:freetype:2.6.2-rev6
   sha256: bafc4a6f81b51b78a6dcfe3d2f4654750e1af1a6126f916c78fa88998c2909f4
 - coordinate: com.github.jomof:sdl2:2.0.5-rev19

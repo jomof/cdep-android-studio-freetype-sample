@@ -1,16 +1,15 @@
 ﻿#include <iostream>
-#include <string>
 
-#include <ft2build.h>
-#include FT_FREETYPE_H
+ FT_FREETYPE_H
 
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_main.h>
+
 
 const unsigned int WIDTH = 1280;
 const unsigned int HEIGHT = 720;
 
-const std::wstring TEXT = L"เก็บใจ เก็บไว้มานาน เก็บมันคล้าย ๆ รอใคร";
+const std::wstring TEXT = L"Hello Freetype";
+
 SDL_Texture* CreateTextureFromFT_Bitmap(SDL_Renderer* renderer,
                                         const FT_Bitmap& bitmap,
                                         const SDL_Color& color)
@@ -101,6 +100,10 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
+
+
+
+
     // The window is open: could enter program loop here (see SDL_PollEvent())
     // Setup renderer
     SDL_Renderer* renderer = NULL;
@@ -110,7 +113,15 @@ int main(int argc, char* argv[]) {
     FT_Init_FreeType(&library);
 
     FT_Face face;
-    FT_New_Face(library, argv[1], 0, &face);
+
+    FT_Error error = FT_New_Face(library,
+                                 "/data/user/0/com.example.jomof.myapplication/files/font.ttf",
+                                 0,
+                                 &face);
+    if (0 != error) {
+        // Failed
+        return 1;
+    }
     FT_Set_Pixel_Sizes(face, 0, 64);
 
     SDL_Color color;

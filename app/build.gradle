@@ -4,6 +4,12 @@ android {
     compileSdkVersion = 23
     buildToolsVersion = '25.0.0'
 
+    sourceSets {
+        main {
+            assets.srcDirs = ['src/main/assets/']
+        }
+    }
+
     defaultConfig {
         applicationId "com.example.jomof.myapplication"
         minSdkVersion 15

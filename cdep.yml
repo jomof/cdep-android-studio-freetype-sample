@@ -3,3 +3,4 @@ builders: [cmake]
 dependencies:
 - compile: com.github.jomof:sdl2:2.0.5-rev19
 - compile: com.github.jomof:freetype:2.6.2-rev6
+- compile: com.github.jomof:tinydir:0.0.0-rev1
