@@ -28,8 +28,9 @@ cd cdep-android-studio-SDL2-sample
 You can also open the project in Android Studio and run it.
 
 ## Thanks
+The main loop that demonstrates Freetype with SDL2 is adapted from https://github.com/wutipong/drawtext-sdl2-freetype2-harfbuzz/blob/master/sdl-ft-1/main.cpp.
 
-This project is forked from https://github.com/stephen47/android-sdl2-gradle-template which was very helpful. 
+This project itself is orginally forked from https://github.com/stephen47/android-sdl2-gradle-template which was very helpful. 
 
 ### The author of that project also had these thanks.
 
