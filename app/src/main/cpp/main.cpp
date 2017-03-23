@@ -1,8 +1,11 @@
 ﻿#include <iostream>
+#include <string>
 
+#include <ft2build.h>
 #include FT_FREETYPE_H
 
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_main.h>
 
 const unsigned int WIDTH = 1280;
 const unsigned int HEIGHT = 720;
