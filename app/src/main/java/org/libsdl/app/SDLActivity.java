@@ -98,6 +98,7 @@ public class SDLActivity extends Activity {
      * Id of current dialog.
      */
     protected int dialogs = 0;
+    String fontFile;
     // Handler for the messages
     Handler commandHandler = new SDLCommandHandler();
     /**
@@ -482,7 +483,7 @@ public class SDLActivity extends Activity {
      * @return arguments for the native application.
      */
     protected String[] getArguments() {
-        return new String[0];
+        return new String[] { fontFile };
     }
 
     // Setup
@@ -493,7 +494,8 @@ public class SDLActivity extends Activity {
         Log.v(TAG, "onCreate(): " + mSingleton);
         super.onCreate(savedInstanceState);
 
-        File font = new File(getFilesDir(), "font.ttf");
+        File font = new File(getFilesDir(), "FreeMono.ttf");
+        fontFile = font.getAbsolutePath();
         if (!font.isFile()) {
             AssetManager assets = getResources().getAssets();
             try {

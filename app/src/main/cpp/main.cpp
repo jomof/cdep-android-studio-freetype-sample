@@ -117,7 +117,7 @@ int main(int argc, char* argv[]) {
     FT_Face face;
 
     FT_Error error = FT_New_Face(library,
-                                 "/data/user/0/com.example.jomof.myapplication/files/font.ttf",
+                                 argv[1],
                                  0,
                                  &face);
     if (0 != error) {
