@@ -22,7 +22,7 @@ All you need to do is clone this project, run CDep, and build.
 ```
 git clone https://github.com/jomof/cdep-android-studio-SDL2-sample
 cd cdep-android-studio-SDL2-sample
-./cdep
+./cdep  # Downloads dependencies referenced in cdep.yml
 ./gradlew assemble
 ```
 You can also open the project in Android Studio and run it.
