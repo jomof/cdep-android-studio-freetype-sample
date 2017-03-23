@@ -1,5 +1,5 @@
 # Freetype and SDL2 on Android
-This is a sample project that combines Freetype (http://www.freetype.org) and SDL2 (https://www.libsdl.org/) together in an Android Gradle project using the [CDep](https://github.com/jomof/cdep) dependency management tool to download the Freetype and SDL2 packages rather than building them. 
+This is a sample project that combines Freetype (http://www.freetype.org) and SDL2 (https://www.libsdl.org) together in an Android Gradle project using the [CDep](https://github.com/jomof/cdep) dependency management tool to download the Freetype and SDL2 packages rather than building them. 
 
 [![Build Status](https://travis-ci.org/jomof/cdep-android-studio-freetype-sample.svg?branch=master)](https://travis-ci.org/jomof/cdep-android-studio-freetype-sample) [![Freetype Status](https://cdep-io.github.io/com.github.jomof/freetype/latest/latest.svg)](https://github.com/jomof/freetype/releases/latest) [![CDep Status](https://cdep-io.github.io/com.github.jomof/sdl2/latest/latest.svg)](https://github.com/jomof/sdl2/releases/latest)
 
