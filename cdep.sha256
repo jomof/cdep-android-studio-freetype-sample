@@ -8,10 +8,16 @@
 # The recommended best practice is to check this file into source control so that
 # anyone else who builds this project is guaranteed to get the same dependencies.
 
+- coordinate: com.github.jomof:stb/perlin:0.0.0-rev2
+  sha256: 0ce439e7aa65266d352d24d3b702ac24508640392c7839f4d52f38ca8ade094e
 - coordinate: com.github.jomof:tinydir:0.0.0-rev1
   sha256: 665476207c63bee7070fd289985069139c6a7a5a618d283db6dbd9414d566682
 - coordinate: com.github.jomof:freetype:2.6.2-rev6
   sha256: bafc4a6f81b51b78a6dcfe3d2f4654750e1af1a6126f916c78fa88998c2909f4
 - coordinate: com.github.jomof:sdl2:2.0.5-rev19
   sha256: 6d0afa5a46642166fd947aa8e92364d64b6d9a85dcdf8dd6651b1a775df8b374
+- coordinate: com.github.jomof:freetype:2.6.2-rev14
+  sha256: 4adc3c5302d6bd2d9b0374812c7d4206295b4377bc8a49c99c69fc357aec6c01
+- coordinate: com.github.jomof:sdl2:2.0.5-rev26
+  sha256: e42718fa2c52f5782e4154c560d547781e04894fea0d1b9cdacf0b2c1427a486
 

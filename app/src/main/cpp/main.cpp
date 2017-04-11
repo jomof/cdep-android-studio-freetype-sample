@@ -14,13 +14,9 @@ const std::wstring TEXT = L"Hello Freetype";
 
 SDL_Texture* CreateTextureFromFT_Bitmap(SDL_Renderer* renderer,
                                         const FT_Bitmap& bitmap,
-                                        const SDL_Color& color)
-{
-    SDL_Texture* output = SDL_CreateTexture(renderer,
-                                            SDL_PIXELFORMAT_RGBA8888,
-                                            SDL_TEXTUREACCESS_STREAMING,
-                                            bitmap.width,
-                                            bitmap.rows);
+                                        const SDL_Color& color) {
+    SDL_Texture* output = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888,
+        SDL_TEXTUREACCESS_STREAMING, bitmap.width, bitmap.rows);
 
     void *buffer;
     int pitch;
@@ -31,15 +27,12 @@ SDL_Texture* CreateTextureFromFT_Bitmap(SDL_Renderer* renderer,
 
     SDL_PixelFormat* pixel_format = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888);
 
-    for (int y = 0; y < bitmap.rows; y++)
-    {
-        for (int x = 0; x < bitmap.width; x++)
-        {
+    for (int y = 0; y < bitmap.rows; y++) {
+        for (int x = 0; x < bitmap.width; x++) {
             int index = (y * bitmap.width) + x;
 
             unsigned int alpha = src_pixels[index];
-            unsigned int pixel_value =
-                    SDL_MapRGBA(pixel_format, color.r, color.g, color.b, alpha);
+            unsigned int pixel_value = SDL_MapRGBA(pixel_format, color.r, color.g, color.b, alpha);
 
             target_pixels[index] = pixel_value;
         }
@@ -47,7 +40,6 @@ SDL_Texture* CreateTextureFromFT_Bitmap(SDL_Renderer* renderer,
 
     SDL_FreeFormat(pixel_format);
     SDL_UnlockTexture(output);
-
     return output;
 }
 
@@ -56,12 +48,10 @@ void DrawText(const std::wstring& text,
               const int& baseline,
               const int& x_start,
               const FT_Face& face,
-              SDL_Renderer* renderer)
-{
+              SDL_Renderer* renderer) {
     int x = x_start;
 
-    for (unsigned int i = 0; i < text.length(); i++)
-    {
+    for (unsigned int i = 0; i < text.length(); i++) {
         FT_Load_Char(face, text[i], FT_LOAD_RENDER);
 
         SDL_Texture* glyph_texture = CreateTextureFromFT_Bitmap(renderer, face->glyph->bitmap, color);
@@ -80,7 +70,6 @@ void DrawText(const std::wstring& text,
 }
 
 int main(int argc, char* argv[]) {
-
     SDL_Window *window;                    // Declare a pointer
 
     SDL_Init(SDL_INIT_VIDEO);              // Initialize SDL2
@@ -102,10 +91,6 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-
-
-
-
     // The window is open: could enter program loop here (see SDL_PollEvent())
     // Setup renderer
     SDL_Renderer* renderer = NULL;
@@ -116,10 +101,7 @@ int main(int argc, char* argv[]) {
 
     FT_Face face;
 
-    FT_Error error = FT_New_Face(library,
-                                 argv[1],
-                                 0,
-                                 &face);
+    FT_Error error = FT_New_Face(library, argv[1], 0, &face);
     if (0 != error) {
         // Failed
         return 1;
@@ -132,11 +114,9 @@ int main(int argc, char* argv[]) {
     color.b = 0xaa;
 
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
-    while (true)
-    {
+    while (true) {
         SDL_Event event;
-        if (SDL_PollEvent(&event))
-        {
+        if (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT)	break;
         }
 
@@ -151,7 +131,6 @@ int main(int argc, char* argv[]) {
 
     FT_Done_Face(face);
     FT_Done_FreeType(library);
-
 
     // Close and destroy the window
     SDL_DestroyWindow(window);
