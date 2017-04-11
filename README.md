@@ -1,17 +1,9 @@
-[![Build Status](https://travis-ci.org/jomof/cdep-android-studio-freetype-sample.svg?branch=master)](https://travis-ci.org/jomof/cdep-android-studio-freetype-sample)
+# Freetype and SDL2 on Android
+This is a sample project that combines Freetype (http://www.freetype.org) and SDL2 (https://www.libsdl.org) together in an Android Gradle project using the [CDep](https://github.com/jomof/cdep) dependency management tool to download the Freetype and SDL2 packages rather than building them. 
 
-# cdep-android-studio-freetype-sample
+[![Build Status](https://travis-ci.org/jomof/cdep-android-studio-freetype-sample.svg?branch=master)](https://travis-ci.org/jomof/cdep-android-studio-freetype-sample) [![Freetype Status](https://cdep-io.github.io/com.github.jomof/freetype/latest/latest.svg)](https://github.com/jomof/freetype/releases/latest) [![CDep Status](https://cdep-io.github.io/com.github.jomof/sdl2/latest/latest.svg)](https://github.com/jomof/sdl2/releases/latest)
 
-## Synopsis
-
-This is an example project for using freetype and SDL2 (https://www.libsdl.org/) in an Android Gradle project using the [CDep](https://github.com/jomof/cdep)  dependency management tool to download the SDL2 package rather than building it. 
-
-The latest version of CDep packages are here.
-
-[![Freetype Status](https://cdep-io.github.io/com.github.jomof/freetype/latest/latest.svg)](https://github.com/jomof/freetype/releases/latest) 
-
-[![CDep Status](https://cdep-io.github.io/com.github.jomof/sdl2/latest/latest.svg)](https://github.com/jomof/sdl2/releases/latest) 
-
+![Screen Shot](screenshot.jpg)
 
 ## Instructions
 
@@ -20,14 +12,15 @@ All you need to do is clone this project, run CDep, and build.
 ```
 git clone https://github.com/jomof/cdep-android-studio-SDL2-sample
 cd cdep-android-studio-SDL2-sample
-./cdep
+./cdep  # Downloads dependencies referenced in cdep.yml
 ./gradlew assemble
 ```
 You can also open the project in Android Studio and run it.
 
 ## Thanks
+The main loop that demonstrates Freetype with SDL2 is adapted from https://github.com/wutipong/drawtext-sdl2-freetype2-harfbuzz/blob/master/sdl-ft-1/main.cpp.
 
-This project is forked from https://github.com/stephen47/android-sdl2-gradle-template which was very helpful. 
+This project itself is orginally forked from https://github.com/stephen47/android-sdl2-gradle-template which was very helpful. 
 
 ### The author of that project also had these thanks.
 
