@@ -10,8 +10,8 @@ This is a sample project that combines Freetype (http://www.freetype.org) and SD
 All you need to do is clone this project, run CDep, and build.
 
 ```
-git clone https://github.com/jomof/cdep-android-studio-SDL2-sample
-cd cdep-android-studio-SDL2-sample
+git clone https://github.com/jomof/cdep-android-studio-freetype-sample.git
+cd cdep-android-studio-freetype-sample
 ./cdep  # Downloads dependencies referenced in cdep.yml
 ./gradlew assemble
 ```
