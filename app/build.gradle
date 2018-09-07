@@ -16,6 +16,9 @@ android {
                         "-DCMAKE_ANDROID_STL_TYPE=c++_static"
             }
         }
+        ndk {
+            abiFilters "x86"
+        }
     }
     buildTypes {
         release {
@@ -28,9 +31,7 @@ android {
             path "CMakeLists.txt"
         }
     }
-    ndk {
-      abiFilters "x86"
-    }
+
 }
 
 dependencies {
