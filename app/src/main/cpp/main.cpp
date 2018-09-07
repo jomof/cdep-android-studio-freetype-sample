@@ -7,9 +7,6 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_main.h>
 
-const unsigned int WIDTH = 1280;
-const unsigned int HEIGHT = 720;
-
 const std::wstring TEXT = L"Hello Freetype";
 
 SDL_Texture* CreateTextureFromFT_Bitmap(SDL_Renderer* renderer,
