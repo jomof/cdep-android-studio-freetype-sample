@@ -7,7 +7,7 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - cmake
-    - g++-6
+    - clang
 env:
   global:
     - ANDROID_API_LEVEL=23
